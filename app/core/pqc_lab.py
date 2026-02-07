@@ -1,15 +1,10 @@
 import hashlib
-
-def run_research_pqc():
-    # [Low] 實驗性與混合 PQC
-    kem_algo = "x25519_mlkem768"
-    sig_algo = "slh_dsa_sha2_128s"
-    stateless_sig = "sphincsplus"
-    
-    # 模擬 Hash 操作
-    h = hashlib.sha3_256()
-    h.update(kem_algo.encode())
-    
-    # [Low] 其他實驗演算法
-    alt_algos = ["FrodoKEM-640", "BIKE-L1", "HQC-128"]
-    print(f"Testing Hybrid: {kem_algo} and {alt_algos[0]}")
+# 模擬 PQC 與傳統算法混合使用情境
+def run_pqc_experiment():
+    # [Low] NIST PQC 候選與標準
+    pqc_algos = ["ml-kem-1024", "slh-dsa-sha2-128s", "mldsa-87", "frodokem-640"]
+    # [Low] 現代 Hash
+    h1 = hashlib.sha3_256()
+    h2 = hashlib.new('shake_128')
+    h3 = hashlib.blake2b()
+    print(f"Testing Research Suite: {pqc_algos}")
