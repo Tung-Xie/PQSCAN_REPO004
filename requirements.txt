@@ -1,0 +1,3 @@
+cryptography>=42.0.0
+liboqs-python>=0.9.0
+pycryptodome>=3.20.0
